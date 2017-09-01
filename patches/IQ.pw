@@ -1,0 +1,255 @@
+<patch>
+  <parameter id="patch_info" type="info">
+    <name>Unnamed patch</name>
+    <description>No description yet...</description>
+  </parameter>
+  <meta>
+    <version>0.8</version>
+  </meta>
+  <connectables>
+    <connectable id="sine_wave_oscillator_1" type="sine_wave_oscillator" category="module">
+      <position x="206" y="48"/>
+      <parameters>
+        <parameter id="frequency" type="value">
+          <value>214.9751930555341</value>
+        </parameter>
+        <parameter id="fine" type="value">
+          <value>1.002</value>
+        </parameter>
+        <parameter id="att" type="value">
+          <value>1</value>
+        </parameter>
+      </parameters>
+    </connectable>
+    <connectable id="output_bridge_1" type="output_bridge" category="bridge">
+      <position x="123" y="749"/>
+    </connectable>
+    <connectable id="noise_generator_1" type="noise_generator" category="module">
+      <position x="31" y="238"/>
+      <parameters/>
+    </connectable>
+    <connectable id="mixer_4_1" type="mixer_4" category="module">
+      <position x="270" y="561"/>
+      <parameters>
+        <parameter id="volume_1" type="volume">
+          <value>-60</value>
+        </parameter>
+        <parameter id="volume_2" type="volume">
+          <value>-60</value>
+        </parameter>
+        <parameter id="volume_3" type="volume">
+          <value>0</value>
+        </parameter>
+        <parameter id="volume_4" type="volume">
+          <value>-60</value>
+        </parameter>
+        <parameter id="volume_mix" type="volume">
+          <value>0</value>
+        </parameter>
+      </parameters>
+    </connectable>
+    <connectable id="ring_modulator_1" type="ring_modulator" category="module">
+      <position x="399" y="432"/>
+      <parameters/>
+    </connectable>
+    <connectable id="sine_wave_oscillator_2" type="sine_wave_oscillator" category="module">
+      <position x="902" y="16"/>
+      <parameters>
+        <parameter id="frequency" type="value">
+          <value>1.5312321718037076</value>
+        </parameter>
+        <parameter id="fine" type="value">
+          <value>1</value>
+        </parameter>
+        <parameter id="att" type="value">
+          <value>1</value>
+        </parameter>
+      </parameters>
+    </connectable>
+    <connectable id="oscilloscope_1" type="oscilloscope" category="module">
+      <position x="240" y="825"/>
+      <parameters>
+        <parameter id="buffer_size" type="integer">
+          <value>1755</value>
+        </parameter>
+      </parameters>
+    </connectable>
+    <connectable id="constant_1" type="constant" category="module">
+      <position x="1054" y="-14"/>
+      <parameters>
+        <parameter id="constant" type="value">
+          <value>0.4</value>
+        </parameter>
+      </parameters>
+    </connectable>
+    <connectable id="mixer_4_2" type="mixer_4" category="module">
+      <position x="1037" y="191"/>
+      <parameters>
+        <parameter id="volume_1" type="volume">
+          <value>-7.391304347826086</value>
+        </parameter>
+        <parameter id="volume_2" type="volume">
+          <value>6</value>
+        </parameter>
+        <parameter id="volume_3" type="volume">
+          <value>0</value>
+        </parameter>
+        <parameter id="volume_4" type="volume">
+          <value>0</value>
+        </parameter>
+        <parameter id="volume_mix" type="volume">
+          <value>-4.5217391304347885</value>
+        </parameter>
+      </parameters>
+    </connectable>
+    <connectable id="delay_1" type="delay" category="module">
+      <position x="418" y="46"/>
+      <parameters>
+        <parameter id="pre_gain" type="volume">
+          <value>0</value>
+        </parameter>
+        <parameter id="delay" type="value">
+          <value>55</value>
+        </parameter>
+        <parameter id="feedback" type="value">
+          <value>0</value>
+        </parameter>
+        <parameter id="dry_wet" type="value">
+          <value>1</value>
+        </parameter>
+        <parameter id="division" type="selector">
+          <selected>1</selected>
+        </parameter>
+      </parameters>
+    </connectable>
+    <connectable id="oscilloscope_2" type="oscilloscope" category="module">
+      <position x="730" y="227"/>
+      <parameters>
+        <parameter id="buffer_size" type="integer">
+          <value>1024</value>
+        </parameter>
+      </parameters>
+    </connectable>
+    <connectable id="oscilloscope_3" type="oscilloscope" category="module">
+      <position x="495" y="223"/>
+      <parameters>
+        <parameter id="buffer_size" type="integer">
+          <value>1024</value>
+        </parameter>
+      </parameters>
+    </connectable>
+    <connectable id="ring_modulator_2" type="ring_modulator" category="module">
+      <position x="546" y="437"/>
+      <parameters/>
+    </connectable>
+    <connectable id="mixer_4_3" type="mixer_4" category="module">
+      <position x="533" y="559"/>
+      <parameters>
+        <parameter id="volume_1" type="volume">
+          <value>-60</value>
+        </parameter>
+        <parameter id="volume_2" type="volume">
+          <value>-60</value>
+        </parameter>
+        <parameter id="volume_3" type="volume">
+          <value>0</value>
+        </parameter>
+        <parameter id="volume_4" type="volume">
+          <value>-60</value>
+        </parameter>
+        <parameter id="volume_mix" type="volume">
+          <value>0</value>
+        </parameter>
+      </parameters>
+    </connectable>
+    <connectable id="output_bridge_2" type="output_bridge" category="bridge">
+      <position x="603" y="790"/>
+    </connectable>
+    <connectable id="oscilloscope_4" type="oscilloscope" category="module">
+      <position x="507" y="827"/>
+      <parameters>
+        <parameter id="buffer_size" type="integer">
+          <value>1024</value>
+        </parameter>
+      </parameters>
+    </connectable>
+  </connectables>
+  <connections>
+    <connection>
+      <source connectable_id="noise_generator_1" output_id="noise_out"/>
+      <destination connectable_id="mixer_4_1" input_id="input_1"/>
+    </connection>
+    <connection>
+      <source connectable_id="sine_wave_oscillator_1" output_id="sound_out"/>
+      <destination connectable_id="mixer_4_1" input_id="input_2"/>
+    </connection>
+    <connection>
+      <source connectable_id="mixer_4_1" output_id="mix_out"/>
+      <destination connectable_id="output_bridge_1" input_id="output_bridge_1_input"/>
+    </connection>
+    <connection>
+      <source connectable_id="sine_wave_oscillator_1" output_id="sound_out"/>
+      <destination connectable_id="ring_modulator_1" input_id="input_1"/>
+    </connection>
+    <connection>
+      <source connectable_id="ring_modulator_1" output_id="output"/>
+      <destination connectable_id="mixer_4_1" input_id="input_3"/>
+    </connection>
+    <connection>
+      <source connectable_id="mixer_4_1" output_id="mix_out"/>
+      <destination connectable_id="oscilloscope_1" input_id="input"/>
+    </connection>
+    <connection>
+      <source connectable_id="constant_1" output_id="output"/>
+      <destination connectable_id="mixer_4_2" input_id="input_2"/>
+    </connection>
+    <connection>
+      <source connectable_id="mixer_4_2" output_id="mix_out"/>
+      <destination connectable_id="ring_modulator_1" input_id="input_2"/>
+    </connection>
+    <connection>
+      <source connectable_id="sine_wave_oscillator_2" output_id="sound_out"/>
+      <destination connectable_id="mixer_4_2" input_id="input_1"/>
+    </connection>
+    <connection>
+      <source connectable_id="delay_1" output_id="output"/>
+      <destination connectable_id="oscilloscope_2" input_id="input"/>
+    </connection>
+    <connection>
+      <source connectable_id="sine_wave_oscillator_1" output_id="sound_out"/>
+      <destination connectable_id="oscilloscope_3" input_id="input"/>
+    </connection>
+    <connection>
+      <source connectable_id="sine_wave_oscillator_1" output_id="sound_out"/>
+      <destination connectable_id="delay_1" input_id="input"/>
+    </connection>
+    <connection>
+      <source connectable_id="mixer_4_2" output_id="mix_out"/>
+      <destination connectable_id="ring_modulator_2" input_id="input_2"/>
+    </connection>
+    <connection>
+      <source connectable_id="delay_1" output_id="output"/>
+      <destination connectable_id="ring_modulator_2" input_id="input_1"/>
+    </connection>
+    <connection>
+      <source connectable_id="noise_generator_1" output_id="noise_out"/>
+      <destination connectable_id="mixer_4_3" input_id="input_1"/>
+    </connection>
+    <connection>
+      <source connectable_id="ring_modulator_2" output_id="output"/>
+      <destination connectable_id="mixer_4_3" input_id="input_3"/>
+    </connection>
+    <connection>
+      <source connectable_id="sine_wave_oscillator_1" output_id="sound_out"/>
+      <destination connectable_id="mixer_4_3" input_id="input_2"/>
+    </connection>
+    <connection>
+      <source connectable_id="mixer_4_3" output_id="mix_out"/>
+      <destination connectable_id="output_bridge_2" input_id="output_bridge_2_input"/>
+    </connection>
+    <connection>
+      <source connectable_id="mixer_4_3" output_id="mix_out"/>
+      <destination connectable_id="oscilloscope_4" input_id="input"/>
+    </connection>
+  </connections>
+</patch>
