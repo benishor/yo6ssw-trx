@@ -1,10 +1,14 @@
 #include <iostream>
 #include <src/Demodulator.h>
 #include <src/WavReader.h>
+#include <iomanip>
 
-const std::string IQ_SOURCE_WAV_FILE = "data/ssb-iq.wav";
+const std::string IQ_SOURCE_WAV_FILE = "data/cw-iq.wav";
 const std::string OUTPUT_WAV_FILE = "data/demodulation-output.wav";
-const int CARRIER_FREQUENCY = 650;
+//const int CARRIER_FREQUENCY = 7600; // ssb
+//const int CARRIER_FREQUENCY = 14550; // ssb
+//const int CARRIER_FREQUENCY = 300; // cw
+const int CARRIER_FREQUENCY = 11000; // cw
 const Sideband SIDEBAND_TO_DECODE = Sideband::LSB;
 
 int main() {
@@ -13,7 +17,7 @@ int main() {
         Demodulator demodulator(IQ_SOURCE_WAV_FILE, OUTPUT_WAV_FILE, CARRIER_FREQUENCY, SIDEBAND_TO_DECODE);
         demodulator.demodulate();
         std::cout << "Done." << std::endl;
-    } catch (std::string e) {
+    } catch (std::string& e) {
         std::cerr << "Caught exception: " << e << std::endl;
     }
 

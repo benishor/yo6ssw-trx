@@ -15,6 +15,7 @@ enum class Sideband {
 
 class WavReader;
 class WavWriter;
+class FirFilter;
 
 class Demodulator {
 public:
@@ -33,6 +34,8 @@ private:
 
     std::shared_ptr<WavWriter> wavWriter;
     std::shared_ptr<WavReader> wavReader;
+    std::shared_ptr<FirFilter> filter;
+    double carrierFrequency;
     double carrierPhase;
     double carrierPhaseIncrement;
     uint32_t fftSize;
@@ -40,5 +43,6 @@ private:
     double samplerate;
     Sideband sidebandToDecode;
     std::shared_ptr<short> audioBuffer;
+    void convoluteAndFillAudioBuffer(short* audioBuffer);
 };
 

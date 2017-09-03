@@ -8,8 +8,8 @@ set(SOURCE_FILES
         src/AudioSettings.h
         src/Oscillator.cpp
         src/Oscillator.h
-#        src/SoundServer.cpp
-#        src/SoundServer.h
+        src/SoundServer.cpp
+        src/SoundServer.h
         src/WavWriter.h
         src/WavWriter.cpp
         src/FftComplex.cpp
@@ -19,15 +19,14 @@ set(SOURCE_FILES
         src/Demodulator.cpp
         src/Demodulator.h
         src/WavReader.cpp
-        src/WavReader.h)
+        src/WavReader.h src/FirFilter.cpp src/FirFilter.h)
 
-#find_package(SDL REQUIRED)
-#find_package(SDL_mixer REQUIRED)
+find_package(SDL REQUIRED)
+find_package(SDL_mixer REQUIRED)
 
 include_directories(.)
-#include_directories(${SDL_INCLUDE_DIR})
-#include_directories(${SDL_MIXER_INCLUDE_DIR})
+include_directories(${SDL_INCLUDE_DIR})
+include_directories(${SDL_MIXER_INCLUDE_DIR})
 
 add_executable(demodulator ${SOURCE_FILES})
-target_link_libraries(demodulator)
-#target_link_libraries(demodulator m ${SDL_LIBRARY} ${SDLMIXER_LIBRARIES})
+target_link_libraries(demodulator m ${SDL_LIBRARY} ${SDLMIXER_LIBRARIES})
