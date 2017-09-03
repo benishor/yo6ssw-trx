@@ -55,7 +55,7 @@ uint16_t WavReader::readUInt16() {
 void WavReader::readHeader() {
     long dataPosition = 0;
 
-    while (1) {
+    while (true) {
         uint32_t tag, tag2, length;
         tag = readTag();
         if (file.eof())
@@ -128,6 +128,8 @@ void WavReader::readHeader() {
             file.seekg(length, ios_base::cur);
         }
     }
+    header.dataPosition = dataPosition;
+    header.originalDataLength = header.dataLength;
     file.clear(); // clear previous eof
     file.seekg(dataPosition, ios_base::beg);
 }
@@ -142,4 +144,10 @@ int WavReader::readData(char* where, unsigned int numberOfBytes) {
 
     header.dataLength -= numberOfBytes;
     return (int) readBytes;
+}
+
+void WavReader::rewind() {
+    file.clear(); // clear previous eof
+    file.seekg(header.dataPosition, ios_base::beg);
+    header.dataLength = header.originalDataLength;
 }

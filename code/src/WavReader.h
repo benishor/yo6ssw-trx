@@ -8,6 +8,8 @@
 
 struct WavHeader {
     uint32_t dataLength = 0;
+    uint32_t originalDataLength = 0;
+    long dataPosition = 0;
     int format = 0;
     int sampleRate = 0;
     int bitsPerSample = 0;
@@ -24,6 +26,7 @@ public:
 
     WavHeader getHeader() const { return header; };
     int readData(char* where, unsigned int numberOfBytes);
+    void rewind();
     void close();
 
 private:

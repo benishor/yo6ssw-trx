@@ -5,4 +5,4 @@ Makefile
 *.cmake
 cmake-build-*
 .idea
-
+build

@@ -20,29 +20,30 @@ class FirFilter;
 class Demodulator {
 public:
     explicit Demodulator(const std::string& iqSourceWav, const std::string& outputWav, int carrierFrequency, Sideband sideband);
-    void setFFTSize(uint32_t bins);
-    uint32_t getFFTSize() const;
     void demodulate();
+    double getSamplerate() const;
+    double getCarrierFrequency() const;
+    Sideband getSidebandToDecode() const;
+    void setSidebandToDecode(Sideband sidebandToDecode);
+    void demodulateInto(short* buffer, int howManySamples);
+    void setCarrierFrequency(int carrierFrequency);
+    void nextFilter();
+    std::string getFilterName() const;
 
 private:
-    bool fillFFTBufferWithSourceIQSamples();
-    void performFFT();
-    void dropUnneededSideBand();
-    void lowPassFilter();
-    void performInverseFFT();
-    void fillAudioBufferFromFFTBuffer(short* buffer);
+    bool readComplexSamplesAndDownmix();
+    void convoluteAndFillAudioBuffer(short* audioBuffer);
 
     std::shared_ptr<WavWriter> wavWriter;
     std::shared_ptr<WavReader> wavReader;
-    std::shared_ptr<FirFilter> filter;
+    int filterIndex = 0;
+    std::shared_ptr<FirFilter> filters[3];
+    std::vector<std::complex<double>> complexSamples;
+    std::string outputWavFilename;
     double carrierFrequency;
     double carrierPhase;
     double carrierPhaseIncrement;
-    uint32_t fftSize;
-    std::vector<std::complex<double>> fftBins;
     double samplerate;
     Sideband sidebandToDecode;
-    std::shared_ptr<short> audioBuffer;
-    void convoluteAndFillAudioBuffer(short* audioBuffer);
 };
 
